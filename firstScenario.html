@@ -1,0 +1,144 @@
+<template>
+    
+        
+            <lightning-input type="text" data-id ="selector1"  name="tag_name_0" label="DCN:" onchange={changeHandler1}></lightning-input>
+        
+        
+            <label for="FieldSelect" class="slds-form-element__label slds-no-flex">
+                Select a Object
+            </label>
+            <select class="slds-select" name = "optionSelect" onchange={changeHandler} >
+                <option value="None">--None--</option>
+                <option value="Account">Account</option>
+                <option value="Contact">Contact</option>
+                <option value="Case">Case</option>
+            </select>           
+        <br></br>
+    <div class="slds-p-around_medium" if:true={recordId}>
+        <lightning-accordion allow-multiple-sections-open
+                         active-section-name={activeSections}>
+        <lightning-accordion-section name="A" label="Accordion Title A">
+        <lightning-layout horizontal-align="spread" multiple-rows="true">
+            <lightning-record-edit-form object-api-name="Account" onsubmit={handleSubmitLead}>               
+		       		 <div class="slds-form_horizontal slds-form slds-grid slds-wrap">
+                            <div class="slds-form_horizontal slds-form slds-grid slds-wrap">
+                        
+                            Select a Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        
+                        <select class="slds-select slds-size_1-of-2" name = "optionSelect" >
+                            <option value="">---None---</option>               
+                    <template for:each={stageNameValues.data} for:item="picklistItem">
+                     <option key={picklistItem.svalue} value={picklistItem.svalue}>
+                       {picklistItem.slabel}
+                     </option>
+                     </template>
+                        </select>
+                            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                       
+		        <lightning-input type="text" class="slds-size_1-of-2" label="InputText" data-id ="selector2"  name="tag_name_0" ></lightning-input>
+                <lightning-input-field data-id ="selector"  field-name="NumberofLocations__c" class="slds-size_1-of-2"></lightning-input-field>        
+                <div class="slds-form-element slds-size_1-of-2">
+                    <label class="slds-form-element__label">Enter Expense Value</label>
+                    <div class="slds-form-element__control">
+                        <lightning-input-field id="fieldid" class="label-hidden .slds-input[disabled] nolabel " data-id ="Name"  variant="label-hidden" field-name="NumberofLocations__c" ></lightning-input-field>
+                    </div>
+                </div>               
+                <lightning-input-field data-id ="myAtt2"  field-name="AccountNumber" class="slds-size_1-of-2"></lightning-input-field>
+                
+                <lightning-input-field data-id ="myAtt3" field-name="AccountSource" class="slds-size_1-of-2"></lightning-input-field>
+                <lightning-input-field data-id ="myAtt4" field-name="Phone" class="slds-size_1-of-2"></lightning-input-field>
+                <lightning-input-field data-id ="myAtt5" field-name="Site" class="slds-size_1-of-2"></lightning-input-field>
+                <lightning-input-field data-id ="myAtt6" field-name="Industry" class="slds-size_1-of-2"></lightning-input-field>
+                <lightning-input-field data-id ="myAtt7" field-name="Type" class="slds-size_1-of-2"></lightning-input-field>
+                <lightning-input-field data-id ="myAtt8" field-name="Fax" class="slds-size_1-of-2"></lightning-input-field>
+                
+                     </div>               
+                    </lightning-record-edit-form>
+        </lightning-layout>
+        </lightning-accordion-section>
+        </lightning-accordion>
+        </div>
+        <div class="slds-p-around_medium slds-grid slds-wrap" if:true={Contact}>
+            <lightning-accordion allow-multiple-sections-open
+                         active-section-name={activeSections}>
+        <lightning-accordion-section name="B" label="Accordion Title B">
+            <lightning-layout horizontal-align="spread" multiple-rows="true">
+                <lightning-record-edit-form object-api-name="Contact" onsubmit={handleSubmitLead}>               
+                            <div class="slds-form_horizontal slds-form slds-grid slds-wrap">
+                    <lightning-input-field data-id ="Name"  field-name="Languages__c" class=" slds-col slds-size_1-of-3"></lightning-input-field>
+                    <lightning-input-field data-id ="Name"  field-name="FirstName" class=" slds-col slds-size_1-of-3"></lightning-input-field>
+                    <lightning-input-field data-id ="myAtt2"  field-name="LastName" class="slds-col slds-size_1-of-3"></lightning-input-field>
+                    <lightning-input-field data-id ="myAtt3" field-name="Title" class="slds-col slds-size_1-of-3"></lightning-input-field>
+                    <lightning-input-field data-id ="myAtt4" field-name="Phone" class="slds-col slds-size_1-of-3"></lightning-input-field>
+                    <lightning-input-field data-id ="myAtt5" field-name="Email" class="slds-col slds-size_1-of-3"></lightning-input-field>
+                    <lightning-input-field data-id ="myAtt6" field-name="Title" class="slds-col slds-size_1-of-3"></lightning-input-field>
+                    <lightning-input-field data-id ="myAtt7" field-name="HomePhone" class="slds-col slds-size_1-of-3"></lightning-input-field>
+                    <lightning-input-field data-id ="myAtt8" field-name="Fax" class="slds-col slds-size_1-of-3"></lightning-input-field>
+                            </div>
+                <div class="slds-form_horizontal slds-form slds-grid slds-wrap">
+                    <div class="slds-form_horizontal slds-form slds-grid slds-wrap slds-size_1-of-3"> 
+                        <label for="FieldSelect" class="slds-form-element__label slds-size_1-of-3">
+                            Select a Object
+                        </label>                                           
+                        <select class="slds-select slds-size_2-of-3"  name = "optionSelect" >
+                            <option value="">---None---</option>               
+                                <template for:each={stageNameValues.data} for:item="picklistItem">
+                                    <option key={picklistItem.svalue} value={picklistItem.svalue}>
+                                        {picklistItem.slabel}
+                                    </option>
+                                </template>
+                        </select>
+                    </div>  
+                    
+                                                                 
+                    
+                     <lightning-button variant="brand" type="submit" label="Create Contact"></lightning-button>
+                </div>  
+                <div class="slds-form_horizontal slds-form slds-grid slds-wrap slds-size_1-of-3 "> 
+                    <label class="slds-form-element__label slds-size_1-of-3" >Status</label>
+                    
+                        <lightning-input-field data-id ="myAtt10" variant="label-hidden" id="fieldid11" field-name="Fax" class="inputField-label-hidden slds-size_2-of-3"></lightning-input-field>
+                   </div> 
+                
+                </lightning-record-edit-form>
+            </lightning-layout>
+                </lightning-accordion-section>
+            </lightning-accordion>
+            </div>
+            <div class="slds-p-around_medium" if:true={Case}>
+                
+                <lightning-layout horizontal-align="spread" multiple-rows="true">
+                    <lightning-record-edit-form object-api-name="Course__c">               
+                                <div class="slds-form_horizontal slds-form slds-grid slds-wrap">
+                        <lightning-input-field data-id ="SuppliedEmail"  field-name="test__c" class="slds-size_1-of-2"></lightning-input-field>
+                        <lightning-input-field data-id ="myAtt2" aria-label="Label Name" variant="label-hidden" field-name="Course_End_Date__c" class="slds-size_1-of-2"></lightning-input-field>
+                        <lightning-input-field data-id ="myAtt3" field-name="Course_End_Date__c" class="slds-size_1-of-2"></lightning-input-field>
+                        <lightning-input-field data-id ="myAtt4" field-name="Course_Start_Date__c" class="slds-size_1-of-2"></lightning-input-field>
+                        <lightning-input-field data-id ="myAtt5" field-name="Course_Start_Date__c" class="slds-size_1-of-2"></lightning-input-field>
+                        <lightning-input-field data-id ="myAtt6" field-name="Current_Occupancy__c" class="slds-size_1-of-2"></lightning-input-field>
+                        <lightning-input-field data-id ="myAtt7" field-name="Current_Occupancy__c" class="slds-size_1-of-2"></lightning-input-field>
+                        <lightning-input-field data-id ="myAtt8" field-name="Status__c" class="slds-size_1-of-2"></lightning-input-field>
+                             </div>               
+                            </lightning-record-edit-form>
+                </lightning-layout>
+           
+            </div>
+            <div  class="center">
+                    <lightning-button variant="brand" label="Search" title="Primary action" onclick={handleSearch} class="slds-m-left_x-small"></lightning-button>
+                    <lightning-button variant="brand" label="Reset" title="Primary action" onclick={handleReset} class="slds-m-left_x-small"></lightning-button>
+            </div>
+            <br></br>
+            <lightning-datatable  onrowaction={handlerowaction} class="slds-text-align_center" data={data1} columns={columns} key-field="Id" 
+            >
+            </lightning-datatable>
+            <br></br>
+            <div  class="center">
+                <lightning-button variant="brand" label="ReAssign" title="Primary action" onclick={handleSearch} class="slds-m-left_x-small"></lightning-button>
+                <lightning-button variant="brand" label="Navigate" title="Primary action" onclick={navigateNext} class="slds-m-left_x-small"></lightning-button>
+                <template if:true={recordId}>
+                <c-new-tab record-id={recordId}></c-new-tab>
+            </template>
+        </div>
+     
+       
+</template>

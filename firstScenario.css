@@ -1,0 +1,35 @@
+.center {
+    text-align: center;
+  }
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  .table-test thead th span {
+    background-color: #16325c;
+    color: white}
+    .THIS .label-hidden > label {
+      display: none;
+  }
+  
+.tablecol thead th > span {
+  background-color: #FF00FF;
+  color: fuchsia;
+}
+.slds-form-element__labell  {
+  
+  width:100%;
+}
+
+
+.THIS .inputField-label-hidden {
+  display: none !important;
+}
+
+.THIS .slds-th__action {
+  padding-right: var(--lwc-spacingLarge,1.5rem);
+  justify-content: center !important; 
+}
+
+
